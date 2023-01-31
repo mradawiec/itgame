@@ -37,8 +37,9 @@ public class ProjectGenerator {
             int penaltyAvoid = random.nextInt(100) + 1;
             int notWorking = random.nextInt(100) + 1;
             int zeroPayment = random.nextInt(100) + 1;
+            int monthPayDelay = random.nextInt(100) + 1;
             String clientType = client[random.nextInt(client.length)];
-            projects.add(new Project(projectName, projectSkills, deliveryDays, penalty, price, paymentDays, difficulty, clientType, paymentDelay, penaltyAvoid, notWorking, zeroPayment));
+            projects.add(new Project(projectName, projectSkills, deliveryDays, penalty, price, paymentDays, difficulty, clientType, paymentDelay, penaltyAvoid, notWorking, zeroPayment, monthPayDelay));
         }
         return projects;
     }

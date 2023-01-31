@@ -20,4 +20,16 @@ public class Skills {
         this.wordpress = wordpress;
         this.prestashop = prestashop;
     }
+
+    @Override
+    public String toString() {
+        return "Skills{" +
+                "frontend=" + frontend +
+                ", backend=" + backend +
+                ", database=" + database +
+                ", mobile=" + mobile +
+                ", wordpress=" + wordpress +
+                ", prestashop=" + prestashop +
+                '}';
+    }
 }

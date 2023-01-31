@@ -1,19 +1,17 @@
 public class Player {
+    String name;
     Skills skills;
     Project project;
-    public double money = 3000;
-
-    public Player() {
-    }
-
-    public Player(Skills skills) {
+    public double money;
+    Subcontractors subcontractors;
+    public Player(String name, Skills skills, double money) {
+        this.name = name;
         this.skills = skills;
+        this.money = money;
     }
-
     public Project getProject() {
         return project;
     }
-
     public void setProject(Project project) {
         this.project = project;
     }
@@ -24,5 +22,18 @@ public class Player {
             money = temp+money;
             project.setPrice(temp);
         }
+    }
+    public void hireSubcontractor(Subcontractors subcontractors){
+        this.subcontractors = subcontractors;
+        this.money -= money;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", money=" + money +
+                ", subcontractors=" + subcontractors +
+                '}';
     }
 }
