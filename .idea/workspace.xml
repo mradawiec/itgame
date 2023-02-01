@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0230058a-a525-453c-bc99-7ca285b0487a" name="Changes" comment="Added types of client ale printing start projects">
-      <change afterPath="$PROJECT_DIR$/src/Subcontractors.java" afterDir="false" />
+    <list default="true" id="0230058a-a525-453c-bc99-7ca285b0487a" name="Changes" comment="Added types of client their conditions, also added subcontractors and menu.&#10;Improved project generator, created rules for clients.">
+      <change afterPath="$PROJECT_DIR$/src/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EmployeeGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Incrementer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Programmer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Salespearson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProjectGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProjectGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Skills.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +32,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2L0Gzi0LTeZU4ydYpIVPrkriRop" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -66,12 +71,20 @@
       <option name="project" value="LOCAL" />
       <updated>1675111414823</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added types of client their conditions, also added subcontractors and menu.&#10;Improved project generator, created rules for clients.">
+      <created>1675192349213</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675192349214</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Added types of client ale printing start projects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added types of client ale printing start projects" />
+    <MESSAGE value="Added types of client their conditions, also added subcontractors and menu.&#10;Improved project generator, created rules for clients." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added types of client their conditions, also added subcontractors and menu.&#10;Improved project generator, created rules for clients." />
   </component>
 </project>
