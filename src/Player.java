@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -5,7 +6,7 @@ public class Player {
     Skills skills;
     Project project;
     public double money;
-    Subcontractors subcontractors;
+    public List<Subcontractors> subcontractorsList = new ArrayList<>();
     public List<Employee> employees;
     public Player(String name, Skills skills, double money) {
         this.name = name;
@@ -27,8 +28,8 @@ public class Player {
         }
     }
     public void hireSubcontractor(Subcontractors subcontractors){
-        this.subcontractors = subcontractors;
-        this.money -= money;
+        subcontractorsList.add(subcontractors);
+        this.money -= subcontractors.price;
     }
     public void hireEmployee(Employee employee) {
         employees.add(employee);
@@ -39,7 +40,7 @@ public class Player {
         return "Player{" +
                 "name='" + name + '\'' +
                 ", money=" + money +
-                ", subcontractors=" + subcontractors +
+                ", subcontractors=" + subcontractorsList +
                 '}';
     }
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,6 +8,7 @@ public class Subcontractors {
     int delayRisk;
     int qualityRisk;
     Skills skills;
+    public List<Subcontractors> subcontractors = new ArrayList<>();
 
     public Subcontractors(String name, double price, int delayRisk, int qualityRisk, Skills skills) {
         this.name = name;
