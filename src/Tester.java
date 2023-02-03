@@ -23,4 +23,14 @@ public class Tester extends Employee {
     public double getExpenses() {
         return super.getExpenses();
     }
+
+    @Override
+    public String toString() {
+        return "Tester{" +
+                "salary=" + salary +
+                ", skills=" + skills +
+                ", expenses=" + expenses +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

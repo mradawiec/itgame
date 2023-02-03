@@ -27,6 +27,32 @@ public class ProjectGenerator {
             for(int j=0; j < numberOfSkills; j++){
                 String skill = skills[random.nextInt(skills.length)];
                 int days = random.nextInt(31) + 1;
+                boolean frontend = false;
+                boolean backend = false;
+                boolean database = false;
+                boolean mobile = false;
+                boolean wordpress = false;
+                boolean prestashop = false;
+                switch (skill) {
+                    case "frontend":
+                        frontend = true;
+                        break;
+                    case "backend":
+                        backend = true;
+                        break;
+                    case "database":
+                        database = true;
+                        break;
+                    case "mobile":
+                        mobile = true;
+                        break;
+                    case "wordpress":
+                        wordpress = true;
+                        break;
+                    case "prestashop":
+                        prestashop = true;
+                        break;
+                }
                 projectSkills.add(new Skills(skill, days));
             }
             int deliveryDays = random.nextInt(31) + 1;
@@ -43,7 +69,7 @@ public class ProjectGenerator {
         }
         return projects;
     }
-    public static List<Project> start (int numberOfProjects) /*do zmiany*/{
+    public static List<Project> start (int numberOfProjects) {
         List<Project> projects = ProjectGenerator.generateProjects(3);
         for (Project project : projects) {
             if(project.getDifficulty().equals("easy") || project.getDifficulty().equals("medium"))

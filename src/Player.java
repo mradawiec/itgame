@@ -12,12 +12,10 @@ public class Player {
         this.name = name;
         this.skills = skills;
         this.money = money;
+        this.employees = new ArrayList<>();
     }
     public Project getProject() {
         return project;
-    }
-    public void setProject(Project project) {
-        this.project = project;
     }
     public void ifComplexProject(Project project) {
         if(getProject().getDifficulty().equals("complex")) {
@@ -27,12 +25,27 @@ public class Player {
             project.setPrice(temp);
         }
     }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
     public void hireSubcontractor(Subcontractors subcontractors){
         subcontractorsList.add(subcontractors);
         this.money -= subcontractors.price;
     }
     public void hireEmployee(Employee employee) {
+        if(employee.getSalary()<= getMoney())
         employees.add(employee);
+        this.money -= employee.getSalary();
+    }
+    public void fireEmployee(Employee employee) {
+        employees.remove(employee);
+        this.money -= 1000.00;
     }
 
     @Override
@@ -42,5 +55,16 @@ public class Player {
                 ", money=" + money +
                 ", subcontractors=" + subcontractorsList +
                 '}';
+    }
+    public boolean hasSalespearson(List<Employee> employees){
+        if (employees == null) {
+            return false;
+        }
+        for(Employee employee : employees) {
+            if(employee instanceof Salespearson){
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,8 +1,7 @@
 public class Salespearson extends Employee {
-    public Salespearson(String name,double salary, Skills skills, double expenses) {
+    public Salespearson(String name, double salary, Skills skills, double expenses, ProjectGenerator projectGenerator) {
         super(name, salary, skills, expenses);
     }
-
     @Override
     public String getName() {
         return super.getName();
@@ -21,5 +20,15 @@ public class Salespearson extends Employee {
     @Override
     public double getExpenses() {
         return super.getExpenses();
+    }
+
+    @Override
+    public String toString() {
+        return "Salespearson{" +
+                "salary=" + salary +
+                ", skills=" + skills +
+                ", expenses=" + expenses +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

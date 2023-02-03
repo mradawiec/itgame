@@ -15,7 +15,7 @@ public class EmployeeGenerator {
                 employee = new Programmer(name,salaryReqProgr,new Skills(rand.nextBoolean(), rand.nextBoolean(), rand.nextBoolean(), rand.nextBoolean(), rand.nextBoolean(), rand.nextBoolean()),expencesProg);
                 break;
             case 2:
-                employee = new Salespearson(name,salaryReqSals,null,expencesSals);
+                employee = new Salespearson(name,salaryReqSals,null,expencesSals, null);
                 break;
             default:
                 employee = new Tester(name,salaryReqSals, null, expencesSals);

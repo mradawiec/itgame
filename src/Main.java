@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,9 +15,12 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Incrementer incrementer = new Incrementer();
         EmployeeGenerator generatorEmployee = new EmployeeGenerator();
+        ProjectGenerator projectGenerator = new ProjectGenerator();
+        List<Employee> employees = player.employees;
         boolean isWorkingDay = incrementer.workingDay;
-
-        List<Project> projects = ProjectGenerator.start(3);
+        int counter = 0;
+        int salProj = 0;
+        List<Project> projects = ProjectGenerator.generateProjects(3);
         Scanner scanner = new Scanner(System.in);
         System.out.println("List of available projects:");
         for (int i = 0; i < projects.size(); i++) {
@@ -31,6 +33,7 @@ public class Main {
         playerProjects.add(projects.get(projectNumber - 1));
 
         while (true) {
+                System.out.println("\n");
                 System.out.println("Date: " + incrementer.getCurrentDate());
                 System.out.println("MENU");
                 System.out.println("1. Sign contract for available projects");
@@ -44,9 +47,38 @@ public class Main {
                 int choice = scan.nextInt();
                 switch (choice) {
                     case 1:
-                        //pozyskanie projektu
+                        List<Project> player1 = ProjectGenerator.generateProjects(3);
+                        System.out.println("List of available projects:");
+                        for (int i = 0; i < projects.size(); i++) {
+                            System.out.println(i + 1 + ") " + projects.get(i));
+                        }
+                        System.out.print("Choose number of project: ");
+                        projectNumber = scanner.nextInt();
+                        playerProjects.add(projects.get(projectNumber - 1));
+                        player.ifComplexProject(playerProjects.get(playerProjects.size() - 1));
                         break;
                     case 2:
+                        if(player.hasSalespearson(employees)) {
+                            if (counter % 5 == 0) {
+                                ProjectGenerator.generateProjects(1);
+                                System.out.println("List of available projects:");
+                                for (int i = 0; i < projects.size(); i++) {
+                                    System.out.println(i + 1 + ") " + projects.get(i));
+                                }
+                                System.out.print("Choose number of project: ");
+                                projectNumber = scanner.nextInt();
+                                playerProjects.add(projects.get(projectNumber - 1));
+                                player.ifComplexProject(playerProjects.get(playerProjects.size() - 1));
+                            } else
+                            {
+                                System.out.println(counter);
+                                counter++;
+                                break;
+                            }
+                        } else {
+                            System.out.println("Hire Sales person to find new projects");
+                            counter++;
+                        }
                         //przeznacz dzien na szukanie klientów ale tylko jak masz pracownika ktory szuka
                         break;
                     case 3:
@@ -62,10 +94,16 @@ public class Main {
                         //przeznacz dzien na testowanie
                         break;
                     case 5:
-                        //oddaj projekt klientowi
+                        for (Project project: projects)
+                        {
+                            System.out.println(project.toString());
+                        }
+                        System.out.println("Enter number to hand over the project");
+                        int index1 = scanner.nextInt() - 1;
+                        Project project = projects.get(index1);
                         break;
                     case 6:
-                        System.out.println("Who do you want to employ? 1 = Subcontractor | 2 = Employee (Programmer, Sales pearson, Tester");
+                        System.out.println("Who do you want to employ? 1 = Subcontractor | 2 = Employee (Programmer, Sales pearson, Tester)");
                         int opt = scan.nextInt();
                         if(opt == 1) {
                             Subcontractors chosenSubcontractor = Subcontractors.chooseWorker(subc);
@@ -78,7 +116,7 @@ public class Main {
                             System.out.println(">2: Sales pearson");
                             System.out.println(">3: Tester");
                             int type = scan.nextInt();
-                            System.out.println(generatorEmployee.generateEmployee(type));
+                            System.out.println(generatorEmployee.generateEmployee(type).toString());
                             System.out.println("Do you want to hire this pearson? 1=yes 2=no");
                             int choose = scan.nextInt();
                             if (choose == 1) {
@@ -90,13 +128,32 @@ public class Main {
                         }
                         break;
                     case 7:
-
+                        if (!employees.isEmpty()) {
+                            System.out.print("Choose employee to fire: ");
+                            int index = scanner.nextInt() - 1;
+                            Employee employee = employees.get(index);
+                            System.out.println("You are firing: " + employee);
+                            System.out.println("This operation will cost you: " + employee.getSalary());
+                            System.out.print("Do you want to continue? [y/n]: ");
+                            String answer = scanner.next();
+                            if (answer.equalsIgnoreCase("y")) {
+                                if (player.getMoney() >= employee.getSalary()) {
+                                    employees.remove(index);
+                                    double remainingBalance = player.getMoney() - employee.getSalary();
+                                    player.setMoney(remainingBalance);
+                                    System.out.println("Employee fired successfully!");
+                                    System.out.println("Your remaining balance is: " + player.getMoney());
+                                } else {
+                                    System.out.println("You don't have enough money to fire this employee.");
+                                }
+                            }
+                        }
                         break;
                     case 8:
                         //rozlicz sie
                         break;
                     default:
-                        //pomijaj dzien
+                        break;
                 }
             incrementer.incrementDay();
                 }

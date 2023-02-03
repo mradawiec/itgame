@@ -34,4 +34,16 @@ public class Programmer extends Employee{
     public double getExpenses() {
         return super.getExpenses();
     }
+
+    @Override
+    public String toString() {
+        return "Programmer{" +
+                "accuracy=" + accuracy +
+                ", punctuality=" + punctuality +
+                ", salary=" + salary +
+                ", skills=" + skills +
+                ", expenses=" + expenses +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
