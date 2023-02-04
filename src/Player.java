@@ -33,14 +33,22 @@ public class Player {
     public void setMoney(double money) {
         this.money = money;
     }
-
+    public void payment() {
+        if (getMoney() >= employees.size() * 10) {
+            double mon = getMoney();
+            mon -= employees.size() * 10;
+            setMoney(mon);
+        } else {
+            System.out.println("Not enough money to pay employees");
+        }
+    }
     public void hireSubcontractor(Subcontractors subcontractors){
         subcontractorsList.add(subcontractors);
         this.money -= subcontractors.price;
     }
     public void hireEmployee(Employee employee) {
         if(employee.getSalary()<= getMoney())
-        employees.add(employee);
+            employees.add(employee);
         this.money -= employee.getSalary();
     }
     public void fireEmployee(Employee employee) {
@@ -67,4 +75,5 @@ public class Player {
         }
         return false;
     }
+
 }
